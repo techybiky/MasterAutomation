@@ -39,3 +39,16 @@ Feature: API Testing using Cucumber and REST Assured
   	Given the API endpoint is "https://reqres.in/api/users/2"
   	When I send a Delete Request
   	Then the response status code should be 204
+  	
+  @instance_6
+  Scenario: Validate Authentication 
+  	Given I have valid cridentails "postman" and "password" 
+  	When I have send authentication request
+  	Then I should get success code 200
+  	
+  @instance_7
+  Scenario: Validate Invalid Authentication
+  	Given I have invalid cridentails "abc" and "abc@123"
+  	When I have send authentication request
+  	Then I should get response code 401
+  	

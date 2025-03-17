@@ -1,39 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="10.229" tests="2" skipped="0" failures="2" errors="0">
-<testcase classname="Login functionality" name="Login functionality - Example #1.1" time="4.967">
-<failure type="org.junit.ComparisonFailure" message="expected:&lt;[#1 Free CRM Software Power Up your Entire Business Free Forever]&gt; but was:&lt;[Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com]&gt;">
-<![CDATA[org.junit.ComparisonFailure: expected:<[#1 Free CRM Software Power Up your Entire Business Free Forever]> but was:<[Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com]>
-	at org.junit.Assert.assertEquals(Assert.java:117)
-	at org.junit.Assert.assertEquals(Assert.java:146)
-	at StepDefinations.loginSteps.verify_page_titie(loginSteps.java:45)
-	at ✽.Title of login page is Login CRM(file:///C:/Users/bikra/project/Automation/src/test/resources/Feature/login.feature:6)
-]]>
-</failure>
+<testsuite name="Cucumber" time="5.651" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="API Testing using Cucumber and REST Assured" name="Validate Authentication" time="5.519">
 <system-out><![CDATA[
-Given User login to the CRM page............................................passed
-When Title of login page is Login CRM.......................................failed
-Then User enter username "bikramadityadas1@gmail.com" and User enter password "Test@1234".skipped
-Then User click on Login button.............................................skipped
-Then User is on Homepage....................................................skipped
-Then Close the browser......................................................skipped
-]]></system-out>
-</testcase>
-<testcase classname="Login functionality" name="Login functionality - Example #1.2" time="5.121">
-<failure type="org.junit.ComparisonFailure" message="expected:&lt;[#1 Free CRM Software Power Up your Entire Business Free Forever]&gt; but was:&lt;[Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com]&gt;">
-<![CDATA[org.junit.ComparisonFailure: expected:<[#1 Free CRM Software Power Up your Entire Business Free Forever]> but was:<[Jobs - Recruitment - Job Search - Employment - Job Vacancies - Naukri.com]>
-	at org.junit.Assert.assertEquals(Assert.java:117)
-	at org.junit.Assert.assertEquals(Assert.java:146)
-	at StepDefinations.loginSteps.verify_page_titie(loginSteps.java:45)
-	at ✽.Title of login page is Login CRM(file:///C:/Users/bikra/project/Automation/src/test/resources/Feature/login.feature:6)
-]]>
-</failure>
-<system-out><![CDATA[
-Given User login to the CRM page............................................passed
-When Title of login page is Login CRM.......................................failed
-Then User enter username "rockstardipu121@gmail.com" and User enter password "Bikram@1234".skipped
-Then User click on Login button.............................................skipped
-Then User is on Homepage....................................................skipped
-Then Close the browser......................................................skipped
+Given I have valid cridentails "postman" and "password".....................passed
+When I have send authentication request.....................................passed
+Then I should get success code 200..........................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

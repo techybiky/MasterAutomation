@@ -14,9 +14,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import utils.APIConstants;
 
 public class APIStepDefinitions {
-
+	private String username;
+	private String password;
 	private Response response;
 	private String endpoint;
 	private static Logger logger = Logger.getLogger(APIStepDefinitions.class.getName());
@@ -96,4 +98,42 @@ public class APIStepDefinitions {
 		logger.info("Endpoint Deleted");
 	}
 
+	@Then("Validate Auth Token")
+	public void validate_auth() {
+
+		response = given().auth().basic("username", "password").when().get("https://api.example.com/protected");
+		response = given().auth().oauth("consumerKey", "consumerSecret", "accessToken", "secretToken").when().get();
+
+		System.out.println("Status Code: " + response.getStatusCode());
+		System.out.println("Response Body: " + response.getBody().asString());
+	}
+
+	@Given("I have valid cridentails {string} and {string}")
+	public void i_have_valid_cridentails_and(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	@When("I have send authentication request")
+	public void i_have_send_authentication_request() {
+		response = given().auth().basic(username, password).get(APIConstants.BASE_URL);
+
+	}
+
+	@Then("I should get success code {int}")
+	public void i_should_get_success_code(Integer statuscode) {
+		response.then().statusCode(statuscode);
+	}
+
+	@Given("I have invalid cridentails {string} and {string}")
+	public void i_have_invalid_cridentails_and(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	@Then("I should get response code {int}")
+	public void i_should_get_response_code(Integer statuscode) {
+		response.then().statusCode(statuscode);
+
+	}
 }

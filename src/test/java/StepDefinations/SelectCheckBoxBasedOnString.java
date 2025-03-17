@@ -14,7 +14,7 @@ public class SelectCheckBoxBasedOnString {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://cosmocode.io/automation-practice-webtable/");
 
-		List<WebElement> rows = driver.findElements(By.xpath("//table/tbody/tr"));
+		List<WebElement> rows = driver.findElements(By.xpath("//table/tbody/tr/"));
 		
 		for(WebElement row:rows) {
 			
