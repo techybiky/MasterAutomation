@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -64,6 +65,8 @@ public class TestPratics {
 
 		// Get WindowHandels
 		Set<String> handel = driver.getWindowHandles(); // it will always store in Set<String>
+
+	//	List<String> handlesList = new ArrayList<>(handel); we can store in List but not ideal 
 		for (String frame : handel) {
 			if (driver.getTitle().contains("Goolge")) {
 				driver.switchTo().window(frame);
